@@ -1,0 +1,51 @@
+;; (autoload 'php-mode "$HOME/local/share/php-mode.el" "Major mode for editing php code." t)
+;; (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+;; (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+
+;(set-background-color "grey10")
+;(set-foreground-color "white")
+;(set-face-font 'default "fixed")
+;(setq initial-frame-alist '((width . 90) (height . 50)))
+(global-set-key [f4] 'goto-line)
+(global-set-key [f5] 'indent-region)
+(global-set-key [f6] 'revert-buffer)
+(global-set-key [f7] 'comment-region)
+(global-set-key [f8] 'uncomment-region)
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(delete-selection-mode t)
+ '(font-latex-fontify-sectioning 1)
+ '(inhibit-startup-screen t)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 103 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face))))
+ '(font-latex-sectioning-1-face ((t (:inherit font-latex-sectioning-2-face))))
+ '(font-latex-sectioning-2-face ((t (:inherit font-latex-sectioning-3-face))))
+ '(font-latex-sectioning-3-face ((t (:inherit font-latex-sectioning-4-face))))
+ '(font-latex-sectioning-4-face ((t (:inherit font-latex-sectioning-5-face))))
+ '(font-latex-sectioning-5-face ((((class color) (background dark)) (:inherit variable-pitch :foreground "yellow" :weight bold)))))
+(set-cursor-color "wheat")
+
+(setq visible-bell t)
+
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
+(if (fboundp 'global-font-lock-mode)
+    (global-font-lock-mode 1)        ; GNU Emacs
+  (setq font-lock-auto-fontify t))   ; XEmacs
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
